@@ -4,12 +4,17 @@ var express = require('express');
 var app = express();
 
 var router = express.Router();
+var lessCSS = require('less-middleware');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+
+
 
 var routes = require('./routes/index');
 var pizza = require('./routes/pizza');
 var chickennuggets = require('./routes/chickennuggets');
+var imgur = require('./routes/imgur');
+
 
 
 //I DON'T KNOW WHAT THIS DOES
@@ -49,6 +54,7 @@ app.use(express.static('public'));
 app.use('/', require('./routes/index'));
 app.use('/pizza', pizza);
 app.use('/chickennuggets', chickennuggets);
+app.use('/imgur', imgur);
 
 
 //OLD LOGGING - BEFORE MORGAN//
